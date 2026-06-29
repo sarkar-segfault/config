@@ -1,0 +1,8 @@
+[alias]
+	save = "!git add -A && git commit -e && git push origin $(git branch --show-current)"
+	stat = status
+[color]
+	ui = auto
+[user]
+	name = Adhrit Sarkar
+	email = adhritsarkar@proton.me

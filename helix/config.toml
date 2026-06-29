@@ -1,0 +1,43 @@
+theme = "catppuccin_mocha"
+
+[keys.insert]
+C-p = ":buffer-next"
+C-n = ":buffer-previous"
+C-k = ":buffer-close"
+
+[keys.normal]
+C-p = ":buffer-next"
+C-n = ":buffer-previous"
+C-k = ":buffer-close!"
+C-s = ":write-all!"
+C-q = ":write-quit-all!"
+
+[editor]
+mouse = false
+true-color = true
+scroll-lines = 1
+default-yank-register = "+"
+continue-comments = false
+bufferline = "always"
+popup-border = "all"
+auto-format = true
+end-of-line-diagnostics = "hint"
+
+[editor.search]
+smart-case = false
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "disable"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = false
+git-ignore = true
+
+[editor.soft-wrap]
+enable = true
