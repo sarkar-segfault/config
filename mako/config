@@ -1,15 +1,12 @@
-font=Iosevka Regular 10
+font=Iosevka Regular 11
 
 background-color=#1e1e2e
 text-color=#cdd6f4
-border-color=#89b4fa
-
+border-color=#f2cdcd
 progress-color=over #313244
-default-timeout=5000
-anchor=top-right
 
 [urgency=high]
-border-color=#f38ba8
+border-color=#fab387
 
-[urgency=low]
-border-color=#6c7086
+default-timeout=5000
+anchor=bottom-right
