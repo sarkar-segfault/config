@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 eval "$(zoxide init bash)"
 
 export CC=clang

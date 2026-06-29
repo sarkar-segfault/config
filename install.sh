@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 [[ -t 1 ]] && BLUE="\e[34m" || BLUE=""
 [[ -t 1 ]] && GREEN="\e[32m" || GREEN=""
 [[ -t 1 ]] && END="\e[0m" || END=""
