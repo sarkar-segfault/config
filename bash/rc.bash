@@ -11,7 +11,7 @@ alias ctst='ctest --test-dir=${CMBD}'
 
 alias ls="eza --group-directories-first -F -1 -A"
 alias less="bat --pager=builtin"
-alias cmatrix="cmatrix -absr"
+alias cmatrix="cmatrix -abs"
 alias cat="bat --pager=cat"
 alias hx=helix
 alias cd=z
