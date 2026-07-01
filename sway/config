@@ -58,7 +58,7 @@ exec swayidle -w \
   before-sleep 'swaylock -f -c 000000'
 
 bar {
-  height 48
+  height 44
   position bottom
 
   status_command ~/.config/sway/status.sh

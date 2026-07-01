@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-choice=$(printf 'Cancel\nLogout\nReboot\nShutdown' | fuzzel --dmenu --prompt-only="> ")
+choice=$(printf 'Cancel\nLogout\nReboot\nShutdown' | fuzzel --dmenu)
 
 case "$choice" in
   Logout)

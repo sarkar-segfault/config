@@ -4,13 +4,14 @@
 [[ -t 1 ]] && END="\e[0m" || END=""
 
 for dir in */; do
-  CFGDIR="${HOME}/.config/${dir}"
+  src="$(pwd)/${dir%/}"
+  dst="${HOME}/.config/${dir%/}"
 
-  echo -e "${BLUE}Removing ${CFGDIR}...${END}"
-  rm -rf "${HOME}/.config/${dir}"
+  echo -e "${BLUE}Removing ${dst}...${END}"
+  rm -rf "${dst}"
 
-  echo -e "${BLUE}Copying ${dir} to ${CFGDIR}...${END}"
-  cp -r "${dir}" "${HOME}/.config/${dir}"
+  echo -e "${BLUE}Creating symlink ${dst} -> ${src}...${END}"
+  ln -s "${src}" "${dst}"
 
-  echo -e "${GREEN}Configured ${dir}!${END}"
+  echo -e "${GREEN}Linked ${dir%/}!${END}"
 done
