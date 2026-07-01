@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-choice=$(printf 'Cancel\nReboot\nShutdown' | fuzzel --dmenu)
+choice=$(printf 'Cancel\nLogout\nReboot\nShutdown' | fuzzel --dmenu --prompt-only="> ")
 
-notify-send "$choice"
 case "$choice" in
+  Logout)
+    swaymsg exit
+    ;;
   Reboot)
     reboot
     ;;
