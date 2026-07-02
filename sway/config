@@ -9,13 +9,20 @@ set $right Right
 set $ws1 1-term
 set $ws2 2-web
 set $ws3 3-md
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
 
 set $term alacritty
 set $menu fuzzel
 set $web firefox
 set $md iotas
 
-font pango:Iosevka 11
+font pango:Iosevka Nerd Font Mono 11
 
 # theme
 set $rosewater #f5e0dc
@@ -51,6 +58,10 @@ output * bg ~/Desktop/toh-wallpaper.jpg fill
 # notifications
 exec mako
 
+default_border none
+default_floating_border normal
+gaps inner 2
+
 # idle lock
 exec swayidle -w \
   timeout 300 'swaylock -f -c 000000' \
@@ -63,7 +74,7 @@ bar {
 
   status_command ~/.config/sway/status.sh
   colors {
-    background         $base
+    background         $crust
     statusline         $text
     focused_statusline $text
     focused_separator  $base
@@ -74,13 +85,6 @@ bar {
     urgent_workspace   $base  $red      $crust
   }
 }
-
-client.focused           $lavender $base $text  $rosewater $lavender
-client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-client.background        $base
 
 # console
 bindsym $mod+c exec ~/.config/sway/conapp.sh
@@ -119,25 +123,25 @@ bindsym $mod+$right focus right
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move window to workspace
 bindsym $mod+Shift+1 move container to $ws1
 bindsym $mod+Shift+2 move container to $ws2
 bindsym $mod+Shift+3 move container to $ws3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+4 move container to $ws4
+bindsym $mod+Shift+5 move container to $ws5
+bindsym $mod+Shift+6 move container to $ws6
+bindsym $mod+Shift+7 move container to $ws7
+bindsym $mod+Shift+8 move container to $ws8
+bindsym $mod+Shift+9 move container to $ws9
+bindsym $mod+Shift+0 move container to $ws10
 
 assign [app_id="Alacritty"] workspace $ws1
 assign [app_id="firefox"] workspace $ws2

@@ -24,4 +24,4 @@ export CMAKE_GENERATOR=Ninja
 export BAT_THEME="Catppuccin Mocha"
 export PS1="\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\] \[\e[35m\]\$ \[\e[0m\]"
 
-fastfetch
+fastfetch -c examples/13

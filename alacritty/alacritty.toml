@@ -8,7 +8,7 @@ startup_mode = "Maximized"
 size = 12
 
 [font.normal]
-family = "Iosevka"
+family = "Iosevka Nerd Font Mono"
 style = "Medium"
 
 [selection]
