@@ -58,9 +58,15 @@ output * bg ~/Desktop/toh-wallpaper.jpg fill
 # notifications
 exec mako
 
-default_border none
-default_floating_border normal
-gaps inner 2
+default_border pixel 2
+default_floating_border pixel 2
+
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
 
 # idle lock
 exec swayidle -w \
