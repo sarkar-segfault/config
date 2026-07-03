@@ -1,0 +1,20 @@
+position = "top"
+height = 28
+
+[[start]]
+type = "workspaces"
+
+[start.map_name]
+1 = "1-term"
+2 = "2-web"
+3 = "3-md"
+
+[[center]]
+type = "focused"
+
+[[end]]
+type = "battery"
+
+[[end]]
+type = "clock"
+format = "%d-%b-%Y %I:%M:%S%P"

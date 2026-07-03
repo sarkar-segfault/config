@@ -9,6 +9,7 @@ alias cbld='cmake --build ${CMBD} --parallel $(nproc)'
 alias ccfg='cp ${CMBD}/compile_commands.json .'
 alias ctst='ctest --test-dir=${CMBD}'
 
+alias hypr="start-hyprland"
 alias myfetch="fastfetch -c examples/13" # thank you, tony (btw)
 alias ls="eza --group-directories-first -F -1 -A"
 alias less="bat --pager=builtin"
