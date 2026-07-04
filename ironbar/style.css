@@ -1,13 +1,12 @@
-:root {
-    --color-dark-primary: #1c1c1c;
-    --color-dark-secondary: #2d2d2d;
-    --color-white: #fff;
-    --color-active: #6699cc;
-    --color-urgent: #8f0a0a;
+@import "catppuccin-mocha.css";
 
-    --margin-lg: 1em;
-    --margin-sm: 0.5em;
-}
+@define-color color-dark-primary @base;
+@define-color color-dark-secondary @surface0;
+
+@define-color color-white @text;
+
+@define-color color-active @blue;
+@define-color color-urgent @red;
 
 * {
     border-radius: 0;
@@ -18,56 +17,56 @@
 }
 
 scale > trough {
-    background-color: var(--color-dark-secondary);
+    background-color: @color-dark-secondary;
 }
 
 scale > trough > highlight {
-    background-color: var(--color-active);
+    background-color: @color-active;
     border-style: solid;
-    border-color: var(--color-active);
+    border-color: @color-active;
     border-width: 0.2em;
 }
 
 scale > trough > slider {
-    background-color: var(--color-white);
+    background-color: @color-white;
 }
 
 switch > slider {
-    background-color: var(--color-white);
+    background-color: @color-white;
 }
 
 switch:checked {
-    background-color: var(--color-active);
+    background-color: @color-active;
 }
 
 switch:not(:checked) {
-  background-color: var(--color-dark-secondary);
+  background-color: @color-dark-secondary;
 }
 
 #bar, popover, popover contents, calendar, popover .view {
-    background-color: var(--color-dark-primary);
+    background-color: @color-dark-primary;
 }
 
 box, button, label {
     background-color: #0000;
-    color: var(--color-white);
+    color: @color-white;
 }
 
 button {
-    padding-left: var(--margin-sm);
-    padding-right: var(--margin-sm);
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 button:hover, button:active, *:selected {
-    background-color: var(--color-dark-secondary);
+    background-color: @color-dark-secondary;
 }
 
 #end > * + * {
-    margin-left: var(--margin-lg);
+    margin-left: 1.0em;
 }
 
 .sysinfo > * + * {
-    margin-left: var(--margin-sm);
+    margin-left: 0.5em;
 }
 
 .popup-clock .calendar-clock {
@@ -75,13 +74,13 @@ button:hover, button:active, *:selected {
 }
 
 .popup-clock .calendar .today {
-    background-color: var(--color-active);
+    background-color: @color-active;
 }
 
 .workspaces .item.focused {
-    background-color: var(--color-dark-secondary);
+    background-color: @color-dark-secondary;
 }
 
 .workspaces .item.urgent {
-    background-color: var(--color-urgent);
+    background-color: @color-urgent;
 }
