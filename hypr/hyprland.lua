@@ -19,9 +19,10 @@ local terminal    = "alacritty"
 local menu        = "fuzzel"
 local browser     = "firefox"
 local notes       = "iotas"
-local quitopts    = "~/.config/hypr/quitopts.sh"
 local webapp      = "~/.config/hypr/webapp.sh"
 local conapp      = "~/.config/hypr/conapp.sh"
+local clipopts    = "~/.config/hypr/clipopts.sh"
+local quitopts    = "~/.config/hypr/quitopts.sh"
 
 -------------------
 ---- AUTOSTART ----
@@ -29,6 +30,7 @@ local conapp      = "~/.config/hypr/conapp.sh"
 
 hl.on("hyprland.start", function ()
   hl.exec_cmd("swaybg -i ~/Desktop/toh-wallpaper.jpg")
+  hl.exec_cmd("wl-paste --watch cliphist store")
   hl.exec_cmd("ironbar")
   hl.exec_cmd("mako")
 end)
@@ -64,7 +66,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.config({
   general = {
     gaps_in  = 2,
-    gaps_out = 8,
+    gaps_out = 4,
 
     border_size = 2,
 
@@ -201,10 +203,11 @@ hl.bind("SUPER + K", hl.dsp.window.close())
 hl.bind("SUPER + Q", hl.dsp.exec_cmd(quitopts))
 hl.bind("SUPER + S", hl.dsp.exec_cmd(webapp))
 hl.bind("SUPER + C", hl.dsp.exec_cmd(conapp))
-hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + F", hl.dsp.exec_cmd(menu))
-hl.bind("SUPER + P", hl.dsp.window.pseudo())
-hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd(clipopts))
+-- hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
+-- hl.bind("SUPER + P", hl.dsp.window.pseudo())
+-- hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))
 
 hl.bind("SUPER + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind("SUPER + right", hl.dsp.focus({ direction = "right" }))
