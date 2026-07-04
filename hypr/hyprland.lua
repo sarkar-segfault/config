@@ -16,7 +16,6 @@ hl.monitor({
 ---------------------
 
 local terminal    = "alacritty"
-local fileManager = "pcmanfm"
 local menu        = "fuzzel"
 local browser     = "firefox"
 local notes       = "iotas"
@@ -38,7 +37,10 @@ end)
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
 
+hl.env("XCURSOR_THEME", "breeze_cursors")
 hl.env("XCURSOR_SIZE", "24")
+
+hl.env("HYPRCURSOR_THEME", "breeze_cursors")
 hl.env("HYPRCURSOR_SIZE", "24")
 
 -----------------------
@@ -199,7 +201,6 @@ hl.bind("SUPER + K", hl.dsp.window.close())
 hl.bind("SUPER + Q", hl.dsp.exec_cmd(quitopts))
 hl.bind("SUPER + S", hl.dsp.exec_cmd(webapp))
 hl.bind("SUPER + C", hl.dsp.exec_cmd(conapp))
-hl.bind("SUPER + E", hl.dsp.exec_cmd(fileManager))
 hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + F", hl.dsp.exec_cmd(menu))
 hl.bind("SUPER + P", hl.dsp.window.pseudo())
