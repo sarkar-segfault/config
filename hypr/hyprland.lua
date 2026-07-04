@@ -64,7 +64,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.config({
   general = {
     gaps_in  = 2,
-    gaps_out = 3,
+    gaps_out = 8,
 
     border_size = 2,
 
@@ -282,7 +282,7 @@ hl.window_rule({
 
 hl.window_rule({
     match = {
-        class = "^org%.gnome%.World%.Iotas$",
+        class = "org.gnome.World.Iotas",
     },
     workspace = "3",
 })

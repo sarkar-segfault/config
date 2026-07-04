@@ -4,6 +4,9 @@ import = ["catppuccin-mocha.toml"]
 [window]
 startup_mode = "Maximized"
 
+[window.padding]
+x = 5
+
 [font]
 size = 12
 
