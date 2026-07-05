@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if choice=$(printf 'Cancel\nClear\nHistory' | fuzzel --dmenu); then
+if choice=$(printf 'Clear\nHistory' | fuzzel --dmenu); then
   case "${choice}" in
     Clear)
       cliphist wipe
