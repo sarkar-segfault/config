@@ -10,7 +10,7 @@ alias ccfg='cp ${CMBD}/compile_commands.json .'
 alias ctst='ctest --test-dir=${CMBD}'
 
 alias hypr="start-hyprland"
-alias myfetch="fastfetch -c examples/13" # thank you, tony (btw)
+alias myfetch="fastfetch -c examples/27"
 alias ls="eza --group-directories-first -F -1 -A"
 alias less="bat --pager=builtin"
 alias cmatrix="cmatrix -abs"
