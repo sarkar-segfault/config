@@ -13,7 +13,7 @@
     border: none;
     box-shadow: none;
     background-image: none;
-    font-family: "Iosevka Nerd Font Mono";
+    font-family: "Iosevka Nerd Font Propo";
 }
 
 scale > trough {
@@ -83,4 +83,8 @@ button:hover, button:active, *:selected {
 
 .workspaces .item.urgent {
     background-color: @color-urgent;
+}
+
+#volicon {
+    font-size: 28px;
 }

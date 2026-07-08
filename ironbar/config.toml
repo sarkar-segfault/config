@@ -1,12 +1,27 @@
 position = "top"
-height = 28
+height = 32
 
 [[start]]
 type = "workspaces"
 
-[[end]]
-type = "custom"
+[[center]]
+type = "focused"
+icon_size = 16
 
-[[end.bar]]
-type = "label"
-label = "{{watch:~/.config/ironbar/status.sh}}"
+[center.truncate]
+mode = "end"
+max_length = 64
+
+[[end]]
+type = "volume"
+
+[[end]]
+type = "brightness"
+
+[[end]]
+type = "battery"
+icon_size = 16
+
+[[end]]
+type = "clock"
+format = "%d-%b-%Y %I:%M:%S%P"

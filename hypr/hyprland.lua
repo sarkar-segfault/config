@@ -65,7 +65,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.config({
   general = {
-    gaps_in  = 2,
+    gaps_in  = 4,
     gaps_out = 4,
 
     border_size = 2,
@@ -245,17 +245,14 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
 
-local suppressMaximizeRule = hl.window_rule({
-  -- Ignore maximize requests from all apps. You'll probably like this.
+hl.window_rule({
   name  = "suppress-maximize-events",
   match = { class = ".*" },
 
   suppress_event = "maximize",
 })
--- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-  -- Fix some dragging issues with XWayland
   name  = "fix-xwayland-drags",
   match = {
     class      = "^$",
@@ -265,29 +262,7 @@ hl.window_rule({
     fullscreen = false,
     pin        = false,
   },
-
   no_focus = true,
-})
-
-hl.window_rule({
-    match = {
-        class = "^Alacritty$",
-    },
-    workspace = "1",
-})
-
-hl.window_rule({
-    match = {
-        class = "^firefox$",
-    },
-    workspace = "2",
-})
-
-hl.window_rule({
-    match = {
-        class = "org.gnome.World.Iotas",
-    },
-    workspace = "3",
 })
 
 -- Layer rules also return a handle.
