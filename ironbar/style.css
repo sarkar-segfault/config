@@ -16,6 +16,10 @@
     font-family: "Iosevka Nerd Font Propo";
 }
 
+#spacer {
+    min-width: 8px;
+}
+
 scale > trough {
     background-color: @color-dark-secondary;
 }
