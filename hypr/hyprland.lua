@@ -286,7 +286,7 @@ hl.window_rule({
   match = {
     class = "Alacritty",
   },
-  opacity = "0.9 0.8 0.1",
+  opacity = "0.85 0.8 0.1",
 })
 
 hl.window_rule({
