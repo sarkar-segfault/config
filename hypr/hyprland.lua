@@ -281,3 +281,24 @@ hl.window_rule({
   move  = "20 monitor_h-120",
   float = true,
 })
+
+hl.window_rule({
+  match = {
+    class = "Alacritty",
+  },
+  opacity = "0.9 0.8 0.1",
+})
+
+hl.window_rule({
+  match = {
+    class = "firefox",
+  },
+  workspace = "2",
+})
+	
+hl.window_rule({
+  match = {
+    class = "org.gnome.World.Iotas",
+  },
+  workspace = "3",
+})
