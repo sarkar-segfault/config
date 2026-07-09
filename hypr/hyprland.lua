@@ -175,6 +175,7 @@ hl.config({
     kb_model   = "",
     kb_options = "",
     kb_rules   = "",
+    repeat_delay = 250,
 
     follow_mouse = 1,
 
