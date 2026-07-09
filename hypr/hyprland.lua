@@ -29,6 +29,7 @@ local quitopts    = "~/.config/hypr/quitopts.sh"
 -------------------
 
 hl.on("hyprland.start", function ()
+  hl.exec_cmd("systemctl --user start hyprpolkitagent")
   hl.exec_cmd("swaybg -i ~/Desktop/toh-wallpaper.jpg")
   hl.exec_cmd("wl-paste --watch cliphist store")
   hl.exec_cmd("ironbar")
