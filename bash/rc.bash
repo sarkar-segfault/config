@@ -24,7 +24,21 @@ export USERNAME=$(whoami)
 export HOSTNAME=$(hostnamectl hostname)
 export CMAKE_GENERATOR=Ninja
 export BAT_THEME="Catppuccin Mocha"
-export PS1="\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\] \[\e[35m\]\$ \[\e[0m\]"
+export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\] \[\e[35m\]\$ \[\e[0m\]"
+
+__just_cleared=0
+
+clear() {
+    __just_cleared=1
+    command clear
+}
+
+PROMPT_COMMAND='
+if (( ! __just_cleared )); then
+    printf "\n"
+fi
+__just_cleared=0
+'
 
 myfetch
 cd ~/Projects
