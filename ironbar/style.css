@@ -65,9 +65,9 @@ button:hover, button:active, *:selected {
     background-color: @color-dark-secondary;
 }
 
-#end > * + * {
-    margin-left: 1.0em;
-}
+/* #end > * + * { */
+    /* margin-left: 4px; */
+/* } */
 
 .sysinfo > * + * {
     margin-left: 0.5em;
