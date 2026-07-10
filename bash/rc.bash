@@ -13,7 +13,7 @@ alias hypr="start-hyprland"
 alias myfetch="fastfetch -c examples/27"
 alias ls="eza --group-directories-first -F -1 -A"
 alias less="bat --pager=builtin"
-alias cmatrix="cmatrix -abs"
+alias matrix="unimatrix -a -f -s 93 -l AaS"
 alias cat="bat --pager=cat"
 alias hx=helix
 alias cd=z
