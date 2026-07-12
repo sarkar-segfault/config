@@ -1,162 +1,215 @@
+# ==========================
+# ARTIX LINUX INSTALL CHEATSHEET
+# dinit + iwd + limine + NVMe
+# ==========================
 
-########################
-# Keyboard
-########################
-
+# Keyboard layout (example: US)
 loadkeys us
 
-########################
+# --------------------------
 # Partition disk
-########################
+# --------------------------
 
-cfdisk /dev/sda
+cfdisk /dev/nvme0n1
 
-# Example:
-# /dev/sda1 512M EFI System
-# /dev/sda2 Root
-# /dev/sda3 Home (optional)
-# /dev/sda4 Swap (optional)
+# Create GPT:
+#
+# /dev/nvme0n1p1  1G      EFI System Partition
+# /dev/nvme0n1p2  7.5G    Linux swap
+# /dev/nvme0n1p3  rest    Linux filesystem
 
-########################
-# Format
-########################
+# --------------------------
+# Format partitions
+# --------------------------
 
-mkfs.fat -F32 /dev/sda1
-fatlabel /dev/sda1 ESP
+# EFI partition
+mkfs.fat -F32 /dev/nvme0n1p1
+fatlabel /dev/nvme0n1p1 ESP
 
-mkfs.ext4 -L ROOT /dev/sda2
-mkfs.ext4 -L HOME /dev/sda3      # optional
+# Root filesystem
+mkfs.ext4 -L ROOT /dev/nvme0n1p3
 
-mkswap -L SWAP /dev/sda4         # optional
+# Swap
+mkswap -L SWAP /dev/nvme0n1p2
 
-########################
-# Mount
-########################
+# --------------------------
+# Mount filesystems
+# --------------------------
 
-swapon /dev/disk/by-label/SWAP   # optional
+swapon /dev/disk/by-label/SWAP
 
 mount /dev/disk/by-label/ROOT /mnt
 
-mkdir -p /mnt/{boot,home}
-mount /dev/disk/by-label/HOME /mnt/home    # optional
-
 mkdir -p /mnt/boot/efi
+
 mount /dev/disk/by-label/ESP /mnt/boot/efi
 
-########################
-# Connect WiFi (iwd)
-########################
+# --------------------------
+# Connect network
+# --------------------------
 
+# Start iwd
 iwctl
 
-# Inside iwctl:
-# device list
-# station wlan0 scan
-# station wlan0 get-networks
-# station wlan0 connect SSID
-# exit
-
+# Check network
 ping artixlinux.org
 
-########################
-# Sync clock
-########################
 
+# --------------------------
+# Sync clock
+# --------------------------
+
+# Artix 2026 ISOs use chrony
 dinitctl start chrony
 
-########################
-# Install base
-########################
+# --------------------------
+# Install base system
+# --------------------------
 
-basestrap /mnt \
-base base-devel \
-dinit elogind-dinit \
-linux linux-firmware \
-iwd nano vim
+basestrap /mnt base base-devel linux-zen linux-firmware dinit elogind-dinit
 
-########################
+# --------------------------
 # Generate fstab
-########################
+# --------------------------
 
 fstabgen -U /mnt >> /mnt/etc/fstab
 
-########################
+# Check fstab
+nano /mnt/etc/fstab
+
+# --------------------------
 # Chroot
-########################
+# --------------------------
 
 artix-chroot /mnt
 
-########################
-# Time
-########################
+# ==========================
+# SYSTEM CONFIGURATION
+# ==========================
+
+# --------------------------
+# Timezone
+# --------------------------
 
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
+
 hwclock --systohc
 
-########################
+# --------------------------
 # Locale
-########################
+# --------------------------
+
+pacman -S nano
 
 nano /etc/locale.gen
 
+# Uncomment:
+# en_US.UTF-8 UTF-8
+
 locale-gen
 
-cat >/etc/locale.conf <<EOF
+nano /etc/locale.conf
+
+# Example:
 LANG=en_US.UTF-8
-LC_COLLATE=C
-EOF
 
-########################
+# --------------------------
 # Hostname
-########################
+# --------------------------
 
-echo myhostname >/etc/hostname
+echo myhostname > /etc/hostname
 
-cat >/etc/hosts <<EOF
-127.0.0.1 localhost
-::1 localhost
-127.0.1.1 myhostname.localdomain myhostname
-EOF
+nano /etc/hosts
 
-########################
-# Users
-########################
+# Add:
+#
+# 127.0.0.1 localhost
+# ::1       localhost
+# 127.0.1.1 myhostname.localdomain myhostname
+
+# --------------------------
+# Root password
+# --------------------------
 
 passwd
 
-useradd -m -G wheel user
-passwd user
+# --------------------------
+# Create user
+# --------------------------
 
-########################
-# Bootloader (Limine)
-########################
+useradd -m -G wheel -s /bin/bash username
+
+passwd username
+
+# Enable sudo
+pacman -S sudo
+
+EDITOR=nano visudo
+
+# Uncomment:
+# %wheel ALL=(ALL:ALL) ALL
+
+# ==========================
+# NETWORK (iwd)
+# ==========================
+
+pacman -S iwd dhcpcd
+
+# Enable iwd with dinit
+
+ln -s /etc/dinit.d/iwd /etc/dinit.d/boot.d/
+
+ln -s /etc/dinit.d/dhcpcd /etc/dinit.d/boot.d/
+
+# Enable wireless networking after boot
+# iwd will manage WiFi
+# dhcpcd handles DHCP
+
+# ==========================
+# LIMINE BOOTLOADER
+# ==========================
 
 pacman -S limine efibootmgr
 
-# Install Limine to ESP
-cp -r /usr/share/limine/* /boot/efi/
+# Install Limine to EFI partition
 
-# Create limine.conf
-nano /boot/efi/limine.conf
+limine-install \
+--path=/boot/efi \
+--removable
 
-# Create EFI boot entry
-efibootmgr \
--c \
--d /dev/sda \
--p 1 \
--L "Limine" \
--l '\EFI\BOOT\BOOTX64.EFI'
+# Create limine config
 
-########################
-# Enable iwd
-########################
+mkdir -p /boot/limine
 
-ln -s ../iwd /etc/dinit.d/boot.d/
+nano /boot/limine/limine.conf
 
-########################
-# Finish
-########################
+# Example config:
+#
+# timeout: 5
+#
+# /Artix Linux
+#     protocol: linux
+#     path: boot:///vmlinuz-linux
+#     cmdline: root=UUID=YOUR_ROOT_UUID rw
+#     module_path: boot:///initramfs-linux.img
+
+# Get root UUID:
+blkid /dev/nvme0n1p3
+
+# Install CPU microcode
+
+# Intel:
+pacman -S intel-ucode
+
+# AMD:
+pacman -S amd-ucode
+
+# ==========================
+# FINISH
+# ==========================
 
 exit
+
 umount -R /mnt
+
 reboot
