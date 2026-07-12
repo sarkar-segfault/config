@@ -30,9 +30,11 @@ local quitopts    = "~/.config/hypr/quitopts.sh"
 
 hl.on("hyprland.start", function ()
   hl.exec_cmd("systemctl --user start hyprpolkitagent")
-  hl.exec_cmd("swaybg -i ~/Desktop/toh-wallpaper.jpg")
+  hl.exec_cmd("swaybg -i ~/Pictures/toh-wallpaper.jpg")
   hl.exec_cmd("wl-paste --watch cliphist store")
-  hl.exec_cmd("ironbar")
+  hl.exec_cmd("pipewire-pulse")
+  hl.exec_cmd("wireplumber")
+  hl.exec_cmd("pipewire")
   hl.exec_cmd("mako")
 end)
 
@@ -207,9 +209,10 @@ hl.bind("SUPER + S", hl.dsp.exec_cmd(webapp))
 hl.bind("SUPER + C", hl.dsp.exec_cmd(conapp))
 hl.bind("SUPER + F", hl.dsp.exec_cmd(menu))
 hl.bind("SUPER + V", hl.dsp.exec_cmd(clipopts))
--- hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
--- hl.bind("SUPER + P", hl.dsp.window.pseudo())
+hl.bind("SUPER + P", hl.dsp.exec_cmd([[grim ~/Pictures/"$(date +'%d-%b-%Y_%I-%M-%S%p').png"]]))
+hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd([[grim -g "$(slurp)" ~/Pictures/"$(date +'%d-%b-%Y_%I-%M-%S%p').png"]]))
 -- hl.bind("SUPER + J", hl.dsp.layout("togglesplit"))
+-- hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
 
 hl.bind("SUPER + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind("SUPER + right", hl.dsp.focus({ direction = "right" }))
@@ -296,11 +299,4 @@ hl.window_rule({
     class = "firefox",
   },
   workspace = "2",
-})
-	
-hl.window_rule({
-  match = {
-    class = "org.gnome.World.Iotas",
-  },
-  workspace = "3",
 })

@@ -5,13 +5,13 @@ if choice=$(printf 'Logout\nReboot\nSuspend\nPoweroff' | fuzzel --dmenu); then
       hyprshutdown
     ;;
     Reboot)
-      reboot
+      sudo reboot
     ;;
     Suspend)
-      systemctl suspend
+      loginctl suspend
     ;;
     Poweroff)
-      poweroff
+      sudo poweroff
     ;;
     *)
       exit 0

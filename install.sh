@@ -15,3 +15,9 @@ for dir in */; do
 
   echo -e "${GREEN}Linked ${dir%/}!${END}"
 done
+
+echo -e "${BLUE}Removing ${HOME}/.bashrc...${END}"
+rm -rf "${HOME}/.bashrc"
+echo -e "${BLUE}Creating symlink ${HOME}/.bashrc -> $(pwd)/.bashrc...${END}"
+ln -s "$(pwd)/.bashrc" "${HOME}/.bashrc"
+echo -e "${GREEN}Linked .bashrc!${END}"
