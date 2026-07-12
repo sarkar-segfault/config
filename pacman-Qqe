@@ -24,14 +24,15 @@ hyprshutdown
 intel-ucode
 iotas
 ironbar
+iwd
 libnotify
 libpulse
-linux
+limine
 linux-firmware
+linux-zen
 mako
 man-db
 mkinitcpio
-networkmanager
 ninja
 pipewire
 pipewire-alsa
@@ -52,7 +53,6 @@ upower
 wf-recorder
 wireplumber
 wl-clipboard
-wpa_supplicant
 xdg-desktop-portal-hyprland
 zoxide
 zram-generator

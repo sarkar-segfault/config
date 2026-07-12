@@ -9,11 +9,11 @@ alias cbld='cmake --build ${CMBD} --parallel $(nproc)'
 alias ccfg='cp ${CMBD}/compile_commands.json .'
 alias ctst='ctest --test-dir=${CMBD}'
 
-alias hypr="start-hyprland"
-alias myfetch="fastfetch -c examples/27"
+alias desktop="start-hyprland"
+alias fetch="fastfetch -c examples/27"
 alias ls="eza --group-directories-first -F -1 -A"
 alias less="bat --pager=builtin"
-alias matrix="unimatrix -a -f -s 93 -l AaS"
+alias matrix="unimatrix -a -s 96 -l o"
 alias cat="bat --pager=cat"
 alias hx=helix
 alias cd=z
@@ -40,5 +40,5 @@ fi
 __just_cleared=0
 '
 
-myfetch
+fetch
 cd ~/Projects
