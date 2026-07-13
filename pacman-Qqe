@@ -1,5 +1,6 @@
 alacritty
 base
+base-devel
 bat
 breeze-cursors
 brightnessctl
@@ -25,6 +26,7 @@ hyprland
 hyprpolkitagent
 hyprshutdown
 intel-ucode
+ironbar-git
 iwd
 iwd-dinit
 libnotify
@@ -38,10 +40,8 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
-pkgconf
 playerctl
 python-pipx
-quickshell
 ripgrep
 rustup
 slurp
@@ -58,4 +58,5 @@ wl-clipboard
 xdg-desktop-portal-hyprland
 xdg-utils
 xlibre-xserver-common
+yay
 zoxide
