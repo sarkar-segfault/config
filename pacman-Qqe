@@ -38,8 +38,10 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+pkgconf
 playerctl
 python-pipx
+quickshell
 ripgrep
 rustup
 slurp
@@ -55,4 +57,5 @@ wireplumber
 wl-clipboard
 xdg-desktop-portal-hyprland
 xdg-utils
+xlibre-xserver-common
 zoxide
