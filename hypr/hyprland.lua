@@ -18,7 +18,7 @@ hl.monitor({
 local terminal    = "alacritty"
 local menu        = "fuzzel"
 local browser     = "firefox"
-local notes       = "iotas"
+local notes       = "marktext"
 local webapp      = "~/.config/hypr/webapp.sh"
 local conapp      = "~/.config/hypr/conapp.sh"
 local clipopts    = "~/.config/hypr/clipopts.sh"
@@ -29,7 +29,7 @@ local quitopts    = "~/.config/hypr/quitopts.sh"
 -------------------
 
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
   hl.exec_cmd("swaybg -i ~/Desktop/toh-wallpaper.jpg")
   hl.exec_cmd("wl-paste --watch cliphist store")
   hl.exec_cmd("ironbar")
@@ -204,7 +204,7 @@ hl.gesture({
 hl.bind("SUPER + M", hl.dsp.exec_cmd(notes))
 hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal))
 hl.bind("SUPER + W", hl.dsp.exec_cmd(browser))
-hl.bind("SUPER + R", hl.dsp.exec_cmd("hyprctl reload"))
+hl.bind("SUPER + R", hl.dsp.exec_cmd("hyprctl reload; pkill ironbar; ironbar"))
 hl.bind("SUPER + K", hl.dsp.window.close())
 hl.bind("SUPER + Q", hl.dsp.exec_cmd(quitopts))
 hl.bind("SUPER + S", hl.dsp.exec_cmd(webapp))
@@ -240,8 +240,8 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("sudo brightnessctl set 5%+"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("sudo brightnessctl set 5%-"),                  { locked = true, repeating = true })
 
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
@@ -301,4 +301,11 @@ hl.window_rule({
     class = "firefox",
   },
   workspace = "2",
+})
+
+hl.window_rule({
+  match = {
+    class = "marktext"
+  },
+  workspace = "3"
 })
