@@ -12,10 +12,12 @@ dhcpcd
 dhcpcd-dinit
 dinit
 elogind-dinit
+espeak-ng
 eza
 fastfetch
 fd
 firefox
+fortune-mod
 fuzzel
 git
 github-cli
@@ -35,13 +37,15 @@ linux-firmware
 linux-zen
 mako
 man-db
+man-pages
+marktext-bin
 ninja
 pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
 playerctl
-python-pipx
+reflector
 ripgrep
 rustup
 slurp
@@ -51,6 +55,7 @@ swaybg
 tea
 terminus-font
 ttf-iosevka-nerd
+unimatrix-git
 upower
 wf-recorder
 wireplumber
