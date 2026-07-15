@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-choice=$(fuzzel --dmenu --prompt-only="$ ") && alacritty -e "${choice}"
+choice=$(fuzzel --dmenu --prompt-only="$ ") && bash -c "${choice}"
