@@ -9,11 +9,11 @@ x = 3
 y = 3
 
 [font]
-size = 12
+size = 11
 
 [font.normal]
 family = "Iosevka Nerd Font Mono"
-style = "Medium"
+style = "Regular"
 
 [selection]
 save_to_clipboard = true

@@ -11,7 +11,6 @@ alias cbld='cmake --build ${CMBD} --parallel $(nproc)'
 alias ccfg='cp ${CMBD}/compile_commands.json .'
 alias ctst='ctest --test-dir=${CMBD}'
 
-alias desktop="start-hyprland"
 alias say=espeak-ng
 alias fetch="fastfetch -c examples/27"
 alias ls="eza --group-directories-first -F -1 -A"
