@@ -1,5 +1,5 @@
 font pango:Iosevka Nerd Font Propo 12
-default_border pixel 0
+default_border pixel 4
 gaps inner 4
 gaps outer 2
 
@@ -22,6 +22,12 @@ bindsym Mod4+t exec --no-startup-id alacritty
 bindsym Mod4+w exec --no-startup-id firefox
 
 bindsym Mod4+m exec --no-startup-id marktext
+
+bindsym Mod4+s exec --no-startup-id ~/.config/i3/webapp.sh
+
+bindsym Mod4+c exec --no-startup-id ~/.config/i3/conapp.sh
+
+bindsym Mod4+q exec --no-startup-id ~/.config/i3/quitopts.sh
 
 bindsym Mod4+k killclient
 
@@ -77,8 +83,6 @@ bindsym Mod4+Shift+9 move container to workspace number $ws9
 bindsym Mod4+Shift+0 move container to workspace number $ws10
 
 bindsym Mod4+r reload
-
-bindsym Mod4+q exec --no-startup-id i3-msg exit
 
 mode "resize" {
   bindsym Left resize shrink width 10 px or 10 ppt
