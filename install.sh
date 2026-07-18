@@ -7,19 +7,26 @@ for dir in */; do
   src="$(pwd)/${dir%/}"
   dst="${HOME}/.config/${dir%/}"
 
-  echo -e "${BLUE}Removing ${dst}...${END}"
+  echo -e "${BLUE}Removing ${dst}${END}"
   rm -rf "${dst}"
 
-  echo -e "${BLUE}Creating symlink ${dst} -> ${src}...${END}"
+  echo -e "${BLUE}Creating symlink ${dst} -> ${src}${END}"
   ln -s "${src}" "${dst}"
 
   echo -e "${GREEN}Linked ${dir%/}!${END}"
 done
 
 for dot in .bashrc .xinitrc; do
-  echo -e "${BLUE}Removing ${HOME}/${dot}...${END}"
+  echo -e "${BLUE}Removing ${HOME}/${dot}${END}"
   rm -rf "${HOME}/${dot}"
-  echo -e "${BLUE}Creating symlink ${HOME}/${dot} -> $(pwd)/${dot}...${END}"
+  echo -e "${BLUE}Creating symlink ${HOME}/${dot} -> $(pwd)/${dot}${END}"
   ln -s "$(pwd)/${dot}" "${HOME}/${dot}"
   echo -e "${GREEN}Linked ${dot}!${END}"
 done
+
+echo -e "${BLUE}Removing ${HOME}/.icons${END}"
+rm -rf "${HOME}/.icons"
+echo -e "${BLUE}Creating symlink ${HOME}/.icons/default/index.theme -> $(pwd)/index.theme${END}"
+mkdir -p "${HOME}/.icons/default"
+ln -s "$(pwd)/index.theme" "${HOME}/.icons/default/index.theme"
+echo -e "${GREEN}Linked index.theme!${END}"
