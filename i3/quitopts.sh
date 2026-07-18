@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-if choice=$(printf 'Logout\nReboot\nSuspend\nPoweroff' | rofi -dmenu -p "perform" -lines 1); then
+if choice=$(printf 'logout\nreboot\nsuspend\npoweroff' | rofi -dmenu -p "perform"); then
   case "${choice}" in
-    Logout)
+    logout)
       i3-msg exit
     ;;
-    Reboot)
+    reboot)
       loginctl reboot
     ;;
-    Suspend)
+    suspend)
       loginctl suspend
     ;;
-    Poweroff)
+    poweroff)
       loginctl poweroff
     ;;
     *)
