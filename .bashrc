@@ -30,15 +30,15 @@ export PS1="\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\] \[\e[35m\]\$ \[\e[0m\]"
 __just_cleared=0
 
 clear() {
-    __just_cleared=1
-    command clear
+  __just_cleared=1
+  command clear
 }
 
 PROMPT_COMMAND='
 if (( ! __just_cleared )); then
-    printf "\n"
+  printf "\n"
 fi
 __just_cleared=0
 '
 
-fetch
+[[ ! -v _NO_FETCH ]] && fetch
