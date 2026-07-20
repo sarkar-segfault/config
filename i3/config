@@ -84,6 +84,9 @@ bindsym Mod4+Shift+0 move container to workspace number $ws10
 
 bindsym Mod4+r reload
 
+bindsym Mod4+p exec --no-startup-id maim ~/Desktop/$(date +"%d-%m-%Y_%H:%M:%S").png
+bindsym Mod4+Shift+p exec --no-startup-id maim -s ~/Desktop/$(date +"%d-%m-%Y_%H:%M:%S").png
+
 mode "resize" {
   bindsym Left resize shrink width 10 px or 10 ppt
   bindsym Down resize grow height 10 px or 10 ppt

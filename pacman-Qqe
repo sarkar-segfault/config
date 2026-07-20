@@ -10,7 +10,6 @@ clang
 cmake
 dhcpcd
 dhcpcd-openrc
-dmenu
 dunst
 elogind-openrc
 espeak-ng
@@ -47,7 +46,6 @@ reflector
 ripgrep
 rofi
 rustup
-slop
 sof-firmware
 tea
 terminus-font
