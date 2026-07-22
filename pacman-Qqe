@@ -5,6 +5,7 @@ base-devel
 bat
 breeze-cursors
 brightnessctl
+bspwm
 btop
 clang
 cmake
@@ -22,10 +23,10 @@ git
 github-cli
 gst-plugin-pipewire
 helix
-i3-wm
 intel-ucode
 iwd
 iwd-openrc
+lemonbar
 libnotify
 limine
 linux-firmware
@@ -33,7 +34,6 @@ linux-zen
 maim
 man-db
 man-pages
-marktext-bin
 ninja
 openrc
 picom
@@ -47,6 +47,7 @@ ripgrep
 rofi
 rustup
 sof-firmware
+sxhkd
 tea
 terminus-font
 ttf-iosevka-nerd
@@ -64,6 +65,7 @@ xlibre-xserver-xnest
 xlibre-xserver-xvfb
 xorg-xinit
 xorg-xset
+xorg-xsetroot
 xwallpaper
 yay
 zoxide

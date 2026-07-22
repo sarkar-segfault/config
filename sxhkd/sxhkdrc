@@ -1,0 +1,80 @@
+super + t
+  alacritty
+
+super + w
+  firefox
+
+super + e
+  alacritty -e helix
+
+super + s
+  ~/.config/sxhkd/webapp.sh
+
+super + c
+  ~/.config/sxhkd/conapp.sh
+
+super + q
+  ~/.config/sxhkd/quitopts.sh
+
+super + k
+  bspc node -c
+
+super + f
+  rofi -show drun -theme-str 'listview { lines: 10; }'
+
+XF86AudioRaiseVolume
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+XF86AudioLowerVolume
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
+XF86AudioMicMute
+  wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+XF86AudioMute
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+XF86MonBrightnessUp
+  sudo brightnessctl set +5%
+
+XF86MonBrightnessDown
+  sudo brightnessctl set 5%-
+
+XF86AudioPlay
+  playerctl play-pause
+
+XF86AudioPause
+  playerctl pause
+
+XF86AudioStop
+  playerctl stop
+
+XF86AudioNext
+  playerctl next
+
+XF86AudioPrev
+  playerctl previous
+
+super + {Left,Down,Up,Right}
+  bspc node -f {west,south,north,east}
+
+super + shift + {Left,Down,Up,Right}
+  bspc node -s {west,south,north,east}
+
+super + space
+  bspc node -t ~floating
+
+super + minus
+  bspc node -g hidden
+
+super + shift + minus
+  bspc node -g hidden
+
+super + {1,2,3,4,5,6,7,8,9,0}
+  bspc desktop -f {1,2,3,4,5,6,7,8,9,10}
+
+super + shift + {1,2,3,4,5,6,7,8,9,0}
+  bspc node -d {1,2,3,4,5,6,7,8,9,10}
+
+super + r
+  pkill -USR1 -x sxhkd
