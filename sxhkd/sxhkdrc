@@ -20,7 +20,7 @@ super + k
   bspc node -c
 
 super + f
-  rofi -show drun
+  rofi -show drun -theme-str "listview \{ lines: 8; \}"
 
 super + r
   pkill -USR1 -x sxhkd; pkill -x polybar; polybar &

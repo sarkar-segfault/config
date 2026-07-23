@@ -3,6 +3,7 @@
 sxhkd &
 picom &
 dunst &
+xset r rate 300 35 &
 xwallpaper --zoom ~/Desktop/toh-wallpaper.jpg &
 
 pipewire &
@@ -14,6 +15,5 @@ export XCURSOR_SIZE=24
 
 xrdb -merge ~/.Xresources
 xsetroot -cursor_name left_ptr
-xset r rate 300 35
 
 exec bspwm
