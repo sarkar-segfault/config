@@ -1,5 +1,4 @@
 alacritty
-autotiling
 base
 base-devel
 bat
@@ -26,7 +25,6 @@ helix
 intel-ucode
 iwd
 iwd-openrc
-lemonbar
 libnotify
 limine
 linux-firmware
@@ -42,6 +40,7 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 playerctl
+polybar
 reflector
 ripgrep
 rofi
@@ -52,7 +51,6 @@ tea
 terminus-font
 ttf-iosevka-nerd
 unimatrix-git
-upower
 wireplumber
 xclip
 xdg-utils

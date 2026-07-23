@@ -41,4 +41,4 @@ fi
 __just_cleared=0
 '
 
-[[ ! -v _NO_FETCH ]] && fetch
+fetch

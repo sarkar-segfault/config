@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-choice=$(rofi -dmenu -p "> ") && _NO_FETCH=1 alacritty -e bash -ic "${choice}"
+choice=$(rofi -dmenu -p "$ " -theme-str 'listview { lines: 0; }') && bash -ic "${choice}"

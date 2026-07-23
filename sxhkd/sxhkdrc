@@ -20,7 +20,16 @@ super + k
   bspc node -c
 
 super + f
-  rofi -show drun -theme-str 'listview { lines: 10; }'
+  rofi -show drun
+
+super + r
+  pkill -USR1 -x sxhkd; pkill -x polybar; polybar &
+
+super + p
+  maim ~/Desktop/$(date +"%d-%m-%Y_%H:%M:%S.png")
+
+super + shift + p
+  maim -s ~/Desktop/$(date +"%d-%m-%Y_%H:%M:%S.png")
 
 XF86AudioRaiseVolume
   wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
@@ -75,6 +84,3 @@ super + {1,2,3,4,5,6,7,8,9,0}
 
 super + shift + {1,2,3,4,5,6,7,8,9,0}
   bspc node -d {1,2,3,4,5,6,7,8,9,10}
-
-super + r
-  pkill -USR1 -x sxhkd

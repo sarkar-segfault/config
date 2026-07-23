@@ -145,7 +145,7 @@ textbox {
 }
 
 listview {
-  lines: 0;
+  lines: 8;
   padding: 2px 0px 0px;
   scrollbar: false;
   border-color: @separatorcolor;
